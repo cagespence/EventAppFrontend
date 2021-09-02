@@ -1,5 +1,5 @@
 # Event App Frontend
-Ionic app built in angular with TypeScript
+Ionic app built in Angular with TypeScript
 
 `yarn install`
 
