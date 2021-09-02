@@ -1,0 +1,14 @@
+<app-header></app-header>
+<ion-content class="padding-all">
+  <h4 class="margin-x-md">favorites</h4>
+  <div class="margin-x-md" *ngIf="favorites.length > 0">
+    <div (click)="goToEventDetails(event.id)" class="event-item margin-bottom-sm" *ngFor="let event of favorites"
+      style="display: flex;">
+      <span class="text-light margin-right-sm">{{ event.date }}</span>
+      <span><u>{{ event.title }}</u></span>
+    </div>
+  </div>
+  <div *ngIf="favorites.length ==  0">
+    you have no favorited events
+  </div>
+</ion-content>

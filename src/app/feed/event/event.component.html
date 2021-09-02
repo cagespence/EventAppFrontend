@@ -1,0 +1,39 @@
+<div id="container" class="event-div">
+  <div (click)="goToEventDetails()">
+    <div class="event-top-div">
+      <div>
+        <ion-text class="event-title"><u>{{ eventInfo.event.title }}</u></ion-text>
+      </div>
+    </div>
+    <img />
+    <div class="container">
+      <img *ngIf="eventInfo.isAttending" class="event-ticket" src="../../../assets/images/ticket.png" alt="">
+      <img class="event-image" src="{{ eventInfo.event.imageUrl }}" />
+    </div>
+  </div>
+  <div class="bottom-div">
+
+
+    <div class="date-time-div">
+      <ion-text>{{ prettifiedDate }}</ion-text>
+      <ion-text>{{ prettifiedStartTime }}</ion-text>
+    </div>
+    <span (click)="eventInfo.isLiked ? unfavoriteEvent() : favoriteEvent()">
+      <ion-icon style="margin-left: 8px; height: 100%; width: 30px;"
+        [name]="eventInfo.isLiked ? 'star' : 'star-outline'">
+      </ion-icon>
+    </span>
+
+    <span class="favorite-count">
+      {{eventInfo.favoriteCount}}
+    </span>
+
+    <span>
+      <ion-icon style="margin-left: 8px; height: 100%; width: 30px;" name="people">
+      </ion-icon>
+    </span>
+    <span class="attendee-count">
+      {{eventInfo.attendeeCount}}
+    </span>
+  </div>
+</div>

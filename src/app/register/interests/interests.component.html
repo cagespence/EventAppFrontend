@@ -1,0 +1,18 @@
+<div class="center-all-content">
+  <ion-text
+    >select at least
+    <b [className]="invalidInterestSelection ? 'error-info-div' : ''">3</b>
+    interests</ion-text
+  >
+  <br />
+  <div>
+    <ion-spinner *ngIf="loading" name="crescent"></ion-spinner>
+  </div>
+  <div *ngIf="!loading">
+    <app-tags [handleClick]="handleClick" [tags]="tags"></app-tags>
+  </div>
+  <br />
+  <ion-button type="submit" (click)="addInterests()" [disabled]="loading">
+    <ion-text>continue</ion-text></ion-button
+  >
+</div>

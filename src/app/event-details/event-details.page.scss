@@ -1,0 +1,82 @@
+@import url(../../theme/variables.scss);
+
+.event-details-div {
+  padding-top: 5%;
+}
+
+.event-details-title {
+  padding: 0 8% 0 8%;
+}
+
+img {
+  padding: 5% 0 0 0;
+}
+
+.event-info {
+  display: flex;
+  padding: 0 8% 0 8%;
+  flex-direction: column;
+
+  .add-comment-div {
+    display: flex;
+    border: 3px solid rgb(213, 213, 213);
+    justify-content: center;
+    margin: 0;
+
+    .add-comment-btn {
+      justify-content: center;
+      text-align: center;
+    }
+  }
+
+  .event-buttons {
+    --padding: 0;
+    margin: 0;
+    position: static;
+    display: flex;
+    flex-direction: row;
+
+    .join-leave-btn {
+      margin: 0;
+      width: 80%;
+      padding-right: 2%;
+    }
+
+    .favorite-icon {
+      margin: 0;
+      padding-left: 2%;
+      justify-content: center;
+      width: 20%;
+      ion-icon {
+        float: right;
+        width: 45px;
+        height: 45px;
+      }
+    }
+  }
+
+  .date-host-div {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+  }
+
+  .event-attendees {
+    text-align: center;
+    margin: 5% 0 5% 0;
+  }
+}
+
+.host-div {
+  text-align: right;
+  color: var(--ion-color-primary);
+}
+
+.event-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  flex: 3;
+  margin: 0;
+}

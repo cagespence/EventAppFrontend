@@ -1,0 +1,46 @@
+<div class="center-all-content">
+  <!-- <h1 class="title">event</h1> -->
+  <p class="page-title">register email</p>
+  <div *ngIf="incorrectCredentialsError">
+    <ion-text>Wrong credentials or user does not exist, try again.</ion-text>
+  </div>
+
+  <div *ngIf="missingInformationError" class="error-info-div">
+    <ion-text>Missing information, try again.</ion-text>
+  </div>
+
+  <div *ngIf="emailInUseError" class="error-info-div">
+    <ion-text>Email is taken already, try another one.</ion-text>
+  </div>
+
+  <ion-list lines="full" class="ion-no-margin ion-no-padding">
+    <ion-item class="input-outline mb2">
+      <ion-label position="stacked">Name <ion-text color="danger">*</ion-text>
+      </ion-label>
+      <ion-input required type="text" [(ngModel)]="accountData.name" name="name"></ion-input>
+    </ion-item>
+    <ion-item class="input-outline mb2">
+      <ion-label>Birthday</ion-label>
+      <ion-datetime [(ngModel)]="accountData.dob" placeholder="add Date" max="2100-12-31"></ion-datetime>
+    </ion-item>
+    <ion-item class="input-outline mb2">
+      <ion-label position="stacked">Email <ion-text color="danger">*</ion-text>
+      </ion-label>
+      <ion-input required type="text" [(ngModel)]="accountData.email" name="email"></ion-input>
+    </ion-item>
+    <ion-item class="input-outline mb2">
+      <ion-label position="stacked">Password <ion-text color="danger">*</ion-text>
+      </ion-label>
+      <ion-input required #passInput type="password" name="username" [(ngModel)]="accountData.password"></ion-input>
+      <ion-icon ion-icon slot="end" [name]="passwordIcon" class="passwordIcon" (click)="showPassword(passInput)">
+      </ion-icon>
+    </ion-item>
+  </ion-list>
+  <re-captcha (resolved)="resolved($event)" siteKey="6Lc98MAUAAAAAJA2VZp8Ip-ew9brfnGavxrXsUjY"></re-captcha>
+  <ion-button fill="clear" class="button-outline-thicc mb2" type="submit" (click)="register()">
+    <ion-spinner *ngIf="loading" name="crescent"></ion-spinner>
+    <ion-text *ngIf="!loading">Register</ion-text>
+  </ion-button>
+  <ion-button expand="full" fill="clear" class="button-underline" routerLink="/register">go back
+  </ion-button>
+</div>

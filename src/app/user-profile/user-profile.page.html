@@ -1,0 +1,69 @@
+<ion-content>
+  <div *ngIf="loading" class="center-all-content">
+    <div>
+      <ion-spinner *ngIf="loading" name="crescent"></ion-spinner>
+    </div>
+  </div>
+
+  <div *ngIf="!loading" class="padding-all">
+    <div class="cont">
+      <img class="left" src="../../assets/smile.svg" />
+      <div class="right">
+        <h3>{{ profile.name }}</h3>
+        <h3>{{ profile.dob }}</h3>
+      </div>
+    </div>
+    <!-- <div class="margin-bottom-lg">
+      <h4>bio
+      </h4>
+      <div *ngIf="profile.bio.length > 0">
+        <p>{{ profile.bio }}</p>
+      </div>
+      <div *ngIf="profile.bio.length == 0">
+        <p>this loser doesn't have anything interesting to say so they didn't make a bio! shame!</p>
+      </div>
+    </div> -->
+    <div class="margin-bottom-lg">
+      <h4>interests</h4>
+      <app-tags [handleClick]="handleClick" [tags]="interests"></app-tags>
+    </div>
+    <div class="margin-bottom-lg">
+      <div class="margin-bottom-md">
+        <h4>attending events</h4>
+        <div *ngIf="profile.attending.length > 0">
+          <div
+            (click)="goToEventDetails(event.id)"
+            class="event-item"
+            *ngFor="let event of profile.attending"
+            style="display: flex;"
+          >
+            <span class="text-light margin-right-sm">{{ event.date }}</span>
+            <span
+              ><u>{{ event.title }}</u></span
+            >
+          </div>
+        </div>
+        <div *ngIf="profile.attending.length == 0">
+          {{ profile.name }} didn't join any events. lame!
+        </div>
+      </div>
+      <h4>hosting events</h4>
+      <div *ngIf="profile.hosting.length > 0">
+        <div
+          (click)="goToEventDetails(event.id)"
+          class="event-item"
+          *ngFor="let event of profile.hosting"
+          style="display: flex;"
+        >
+          <span class="text-light margin-right-sm"> {{ event.date }} </span>
+          <span
+            ><u> {{ event.title }} </u></span
+          >
+        </div>
+      </div>
+      <div *ngIf="profile.hosting.length < 0">
+        {{ profile.name }} has no events. sad!
+      </div>
+    </div>
+  </div>
+</ion-content>

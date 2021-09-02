@@ -1,0 +1,21 @@
+.img-upload-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2% 0 2% 0;
+
+  .upload-controls {
+    flex: 1;
+  }
+
+  .thumbnail {
+    flex: 1;
+    max-width: 100%;
+
+    img {
+      padding: 1px;
+      object-fit: contain;
+      overflow: hidden;
+    }
+  }
+}

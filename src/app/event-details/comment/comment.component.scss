@@ -1,0 +1,40 @@
+.comment-div {
+  display: flex;
+  flex-direction: column;
+  padding: 2% 0 2% 0;
+
+  .comment-time-div {
+    text-align: left;
+    font-size: 1em;
+    color: grey;
+  }
+
+  .comment-content-div {
+    font-size: 1.5em;
+  }
+
+  .avatar-name-div {
+    display: flex;
+    flex-direction: row;
+
+    ion-text {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+      text-align: center;
+      font-size: 1.2em;
+    }
+
+    .comment-avatar {
+      height: 50px;
+      width: 50px;
+    }
+  }
+}
+
+
+.small {
+  width: 30px;
+}

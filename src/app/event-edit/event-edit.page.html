@@ -1,0 +1,97 @@
+<ion-content>
+  <div *ngIf="!loaded" class="center-all-content">
+    <div>
+      <ion-spinner name="crescent"></ion-spinner>
+    </div>
+  </div>
+  <div *ngIf="loaded">
+    <div class="create-event-div">
+      <ion-text
+        ><span class="colored-title mb1">edit event - </span
+        >{{ eventDetails.title }}</ion-text
+      >
+      <form [formGroup]="formObj" (ngSubmit)="validateEvent()">
+        <ion-item class="input-outline mb1">
+          <ion-input
+            placeholder="enter name"
+            formControlName="title"
+            value="{{ eventDetails.title }}"
+          ></ion-input>
+        </ion-item>
+        <ion-item class="input-outline mb1">
+          <ion-input
+            placeholder="enter address"
+            formControlName="address"
+            value="{{ eventDetails.address }}"
+          >
+          </ion-input>
+        </ion-item>
+        <ion-item class="input-outline mb1">
+          <ion-textarea
+            rows="3"
+            placeholder="enter the description of the event"
+            auto-grow="true"
+            formControlName="description"
+            value="{{ eventDetails.description }}"
+          ></ion-textarea>
+        </ion-item>
+        <div class="tags-div">
+          <app-add-tags
+            (tagsAdded)="setEventTags($event)"
+            lines="none"
+            [selectedTags]="tagsSelected"
+          ></app-add-tags>
+        </div>
+        <ion-item class="input-outline mb1" lines="none">
+          <ion-label>Start Date</ion-label>
+          <ion-datetime
+            formControlName="date"
+            placeholder="add Date"
+            max="2100-12-31"
+            value="{{ eventDetails.date }}"
+          >
+          </ion-datetime>
+        </ion-item>
+        <ion-item class="input-outline mb1" lines="none">
+          <ion-label>Start Time</ion-label>
+          <ion-datetime
+            formControlName="startTime"
+            display-format="h:mm A"
+            placeholder="add start time"
+            picker-format="h:mm A"
+            [(ngModel)]="updatedStartTime"
+          ></ion-datetime>
+        </ion-item>
+        <ion-item class="input-outline mb1" lines="none">
+          <ion-label>End Time</ion-label>
+          <ion-datetime
+            formControlName="endTime"
+            display-format="h:mm A"
+            placeholder="add end time"
+            picker-format="h:mm A"
+            [(ngModel)]="updatedEndTime"
+          ></ion-datetime>
+        </ion-item>
+        <div>
+          <app-upload-img
+            [currentImage]="currentImageUrl"
+            (uploadedImageUrl)="setEventImage($event)"
+          ></app-upload-img>
+        </div>
+
+        <div class="checkbox-div">
+          <ion-checkbox checked color="primary"></ion-checkbox>
+          <ion-text>Notify attendees of changes</ion-text>
+          <ion-icon
+            ios="ios-help-circle"
+            md="md-help-circle"
+            (click)="showHelpAlert()"
+            class="help-icon"
+          ></ion-icon>
+        </div>
+        <ion-button expand="block" type="submit">update</ion-button>
+        <ion-button expand="block">cancel</ion-button>
+      </form>
+    </div>
+  </div>
+</ion-content>

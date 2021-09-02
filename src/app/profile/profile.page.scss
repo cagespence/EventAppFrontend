@@ -1,0 +1,35 @@
+.left {
+  width: 20%;
+  margin-right: 28px;
+}
+
+.cont {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+// .right {
+
+// }
+
+.edit-profile-button {
+  display: flex;
+  padding: 0;
+  width: 100%;
+  u {
+    text-align: right;
+  }
+}
+
+
+
+.h4-button{
+  height: 25px;
+  position: absolute;
+  margin: 0;
+}
+
+.event-item {
+  font-size: 1.5em;
+}

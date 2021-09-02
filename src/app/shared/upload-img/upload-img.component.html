@@ -1,0 +1,17 @@
+<!-- <div class="button-outline-thin" (click)="selectImage()">
+  <ion-text *ngIf="!loading"><u>upload image</u></ion-text>
+  <div *ngIf="loading">
+    <ion-spinner name="crescent"></ion-spinner>
+  </div>
+</div> -->
+<div class="img-upload-div">
+  <ion-button fill="clear" (click)="selectImage()">
+    <ion-text *ngIf="!loading"><u>upload image</u></ion-text>
+    <div *ngIf="loading">
+      <ion-spinner name="crescent"></ion-spinner>
+    </div>
+  </ion-button>
+  <div class="thumbnail" *ngIf="showImage">
+    <img src="{{ imageUrl }}" />
+  </div>
+</div>

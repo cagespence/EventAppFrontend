@@ -1,0 +1,12 @@
+@import url(../../../theme/variables.scss);
+
+.app-title {
+    font-family: var(--ion-font-alt);
+    font-weight: var(--ion-font-weight);
+    font-size: var(--ion-font-size-toolbar);
+    text-align: center;
+}
+
+ion-header {
+    --padding-bottom: 10px
+}

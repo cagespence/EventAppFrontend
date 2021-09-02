@@ -1,0 +1,26 @@
+<ion-content>
+  <ion-refresher
+    slot="fixed"
+    (ionRefresh)="ionRefresh($event)"
+    (ionPull)="ionPull($event)"
+    (ionStart)="ionStart($event)"
+  >
+    <ion-refresher-content pullingIcon="refresh" pullingText="Pull to refresh">
+    </ion-refresher-content>
+  </ion-refresher>
+  <div class="attendees-div">
+    <ion-list>
+      <ion-list-header>
+        <h4>
+          Attendees of <span class="text-primary">{{ eventTitle }}</span>
+        </h4>
+      </ion-list-header>
+      <div *ngFor="let attendee of attendees" class="singular-attendee-div">
+        <ion-icon name="happy" class="attendee-avatar"></ion-icon>
+        <ion-text
+          ><u>{{ attendee.name }}</u></ion-text
+        >
+      </div>
+    </ion-list>
+  </div>
+</ion-content>

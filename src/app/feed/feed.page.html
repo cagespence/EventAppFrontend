@@ -1,0 +1,46 @@
+<app-header></app-header>
+<ion-content>
+  <ion-refresher
+    class="refresh-feed-comp"
+    slot="fixed"
+    (ionRefresh)="ionRefresh($event)"
+    (ionPull)="ionPull($event)"
+    (ionStart)="ionStart($event)"
+  >
+    <ion-refresher-content pullingIcon="refresh" pullingText="Pull to refresh">
+    </ion-refresher-content>
+  </ion-refresher>
+  <div *ngIf="!showEmptyListMessage">
+    <ion-list>
+      <div *ngFor="let event of events">
+        <ion-item class="ion-no-padding test" lines="none">
+          <app-event [eventInfo]="event"></app-event>
+        </ion-item>
+      </div>
+    </ion-list>
+    <div *ngIf="showAddMoreTagsMessage" class="load-more-events-suggestion-div">
+      <ion-text
+        >No more events, try
+        <span class="empty-list-div" (click)="addNewTags()"
+          ><u class="empty-list-link">adding more tags</u></span
+        >
+        to get more events.</ion-text
+      >
+    </div>
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+      <ion-infinite-scroll-content loadingText="Loading more data...">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </div>
+  <div *ngIf="showEmptyListMessage" class="center-all-content empty-list-div">
+    <ion-text><h3>no events found!</h3></ion-text>
+    <br />
+    <ion-text (click)="addNewEvent()" class="empty-list-link"
+      ><u>adding your own event</u></ion-text
+    >
+    or
+    <ion-text (click)="addNewTags()" class="empty-list-link"
+      ><u>add more tags</u></ion-text
+    >
+  </div>
+</ion-content>

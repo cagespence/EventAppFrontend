@@ -1,0 +1,5 @@
+<div class="tag-container">
+  <div [ngClass]=" (tag.selected)?'selected':''" class="tag-item" *ngFor="let tag of tags">
+    <span (click)=handleClick(tag)>{{tag.name}}</span>
+  </div>
+</div>

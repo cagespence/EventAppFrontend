@@ -1,0 +1,15 @@
+<div class="comment-div">
+  <div class="avatar-name-div">
+    <!-- <img class="small" src="../../assets/smile.svg" /> -->
+    <!-- <ion-icon name="happy" class="comment-avatar"></ion-icon> -->
+    <ion-text (click)="goToProfile(comment.user.id)"><u>{{ comment.user.name }}</u></ion-text>
+  </div>
+  <div class="comment-content-div">
+    <ion-text>
+      {{ comment.content }}
+    </ion-text>
+  </div>
+  <div class="comment-time-div">
+    <ion-text>Posted {{ comment.createdAt }}</ion-text>
+  </div>
+</div>

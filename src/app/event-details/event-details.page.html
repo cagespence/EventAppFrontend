@@ -1,0 +1,148 @@
+<app-header> </app-header>
+<ion-content>
+  <div *ngIf="loading" class="center-all-content">
+    <div>
+      <ion-spinner name="crescent"></ion-spinner>
+    </div>
+  </div>
+  <ion-refresher
+    slot="fixed"
+    (ionRefresh)="ionRefresh($event)"
+    (ionPull)="ionPull($event)"
+    (ionStart)="ionStart($event)"
+  >
+    <ion-refresher-content pullingIcon="refresh" pullingText="Pull to refresh">
+    </ion-refresher-content>
+  </ion-refresher>
+  <div *ngIf="!loading" class="event-details-div">
+    <ion-text class="event-title event-details-title"
+      ><u>{{ currentEventDetails.title }}</u></ion-text
+    >
+    <img src="{{ currentEventDetails.imageUrl }}" />
+    <div class="event-info ">
+      <div class="event-header no-margin">
+        <!-- <span (click)="currentEventDetails.isLiked ? unfavoriteEvent() : favoriteEvent()"> -->
+        <ion-icon
+          (click)="
+            currentEventDetails.isLiked ? unfavoriteEvent() : favoriteEvent()
+          "
+          style="margin-right: 16px; height: 45px; width: 30px;"
+          [name]="currentEventDetails.isLiked ? 'star' : 'star-outline'"
+        >
+        </ion-icon>
+        {{ getFavoriteCount() }}
+        <!-- </span> -->
+
+        <ion-text
+          style="margin-left: auto;"
+          (click)="goToProfile(currentEventDetails.host.id)"
+          class="host-div"
+          >hosted by
+          <u
+            ><b>{{ currentEventDetails.host.name }}</b></u
+          ></ion-text
+        >
+      </div>
+      <div>
+        <div class="date-host-div">
+          <ion-text>{{ currentEventDetails.date }}</ion-text>
+        </div>
+        <div>
+          <ion-text
+            >{{ currentEventDetails.startTime }} -
+            {{ currentEventDetails.endTime }}</ion-text
+          >
+        </div>
+      </div>
+      <div class="mb1">
+        <!-- <h4 class="">address</h4> -->
+        <ion-text
+          ><u>{{ currentEventDetails.address }}</u></ion-text
+        >
+      </div>
+      <div class="event-description mb1">
+        <!-- <h4 class="">description</h4> -->
+        <ion-text>{{ currentEventDetails.description }}</ion-text>
+      </div>
+      <!-- <h4>tags</h4> -->
+      <div class="event-tags">
+        <app-tags
+          [handleClick]="handleClick"
+          [tags]="currentEventDetails.tags"
+        ></app-tags>
+      </div>
+      <div class="event-attendees" (click)="showAttendees()">
+        <ion-text>
+          <u>{{ currentEventDetails.attendees.length }} attendees</u>
+        </ion-text>
+      </div>
+
+      <!-- <h4 class="">comments</h4> -->
+      <div class="add-comment-div">
+        <ion-input
+          placeholder="add a comment"
+          name="comment"
+          [(ngModel)]="commentContent"
+        ></ion-input>
+        <ion-button
+          fill="clear"
+          size="large"
+          class="add-comment-btn ion-no-margin"
+          (click)="addNewComment()"
+        >
+          <ion-icon name="arrow-forward"></ion-icon>
+        </ion-button>
+      </div>
+      <div *ngIf="showComments">
+        <div *ngFor="let comment of currentEventDetails.comments">
+          <app-comment [comment]="comment"></app-comment>
+        </div>
+      </div>
+      <div *ngIf="!showComments">
+        <ion-item class="ion-text-center" lines="none">
+          <ion-label>No comments yet.</ion-label>
+        </ion-item>
+      </div>
+      <div *ngIf="currentEventDetails.isHost" class="destructive-actions-div">
+        <h4>Destructive actions</h4>
+        <ion-button
+          expand="full"
+          class="button-logout"
+          fill="clear"
+          (click)="deleteEvent()"
+          >Delete Event</ion-button
+        >
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer no-border>
+  <!-- <ion-toolbar> -->
+  <div class="join-leave-btn no-padding">
+    <ion-button
+      *ngIf="!currentEventDetails.isHost"
+      fill="clear"
+      class="action-button no-margin"
+      expand="full"
+      (click)="toggleAttending(currentEventDetails.isAttending)"
+    >
+      <!-- <ion-spinner *ngIf="loadJoinLeaveBtn" name="dots"></ion-spinner> -->
+      <ion-text>{{
+        getAttendingText(currentEventDetails.isAttending)
+      }}</ion-text>
+    </ion-button>
+    <!-- todo implement this -->
+    <ion-button
+      *ngIf="currentEventDetails.isHost"
+      fill="clear"
+      class="action-button no-margin"
+      expand="full"
+      style="height: 50px;"
+      (click)="editEvent()"
+    >
+      <ion-text>Edit event</ion-text>
+    </ion-button>
+  </div>
+  <!-- </ion-toolbar> -->
+</ion-footer>

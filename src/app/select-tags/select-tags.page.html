@@ -1,0 +1,12 @@
+<app-header>
+</app-header>
+<ion-content>
+  <div class="padding-all">
+    <!-- <ion-searchbar animated placeholder="filter tags" [(ngModel)]="searchTerm" (ionChange)="setFilteredItems()"> -->
+    <ion-input placeholder="filter tags" class="input-outline mb1" [(ngModel)]="searchTerm"
+      (ionChange)="setFilteredItems()"></ion-input>
+    <!-- </ion-searchbar> -->
+    <app-tags [handleClick]=handleClick [tags]=tags></app-tags>
+    <ion-button fill="clear" class="action-button" expand="block" type="submit" (click)="dismiss()">select</ion-button>
+  </div>
+</ion-content>

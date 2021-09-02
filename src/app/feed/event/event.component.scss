@@ -1,0 +1,113 @@
+@import url(../../../theme/variables.scss);
+
+.event-top-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  ion-icon {
+    height: 35px;
+    width: 35px;
+    margin: 0 5% 0 0;
+  }
+}
+
+.delete-alert-button {
+  background: red;
+  color: white;
+}
+
+.event-div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 5% 0 5% 0;
+
+  img {
+    object-fit: contain;
+    padding-top: 2%;
+  }
+
+  .date-time-div {
+    padding: 2% 0 0 5%;
+  }
+
+  .bottom-div {
+    display: flex;
+    flex-direction: row;
+    flex: 5;
+    padding-top: 8px;
+
+    .date-time-div {
+      flex: 1.7;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .favorite-count {
+      flex: .3;
+      margin-top: 15px;
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+
+    .attendee-count {
+      flex: 3;
+      margin-top: 15px;
+      margin-left: 5px;
+    }
+
+    .base-button {
+      --background: white;
+      font-family: var(--ion-font-alt);
+      font-weight: var(--ion-font-weight);
+      font-size: var(--ion-font-size-button);
+      margin-top: 0;
+      margin-right: 18px;
+      color: var(--ion-color-primary);
+      bottom: 0;
+      right: 0px;
+      width: 50%;
+      height: 50px;
+      border-radius: 0;
+      --box-shadow: #0000002b 0 0 0 0;
+    }
+
+    .join-button {
+      @extend .base-button;
+    }
+
+    .leave-button {
+      @extend .base-button;
+      --background: var(--ion-color-primary);
+      color: white;
+    }
+
+    .delete-button {
+      @extend .base-button;
+      --background: red;
+      color: white;
+    }
+  }
+}
+
+// .containter{
+//   position: relative;
+// }
+
+.top {
+  position: absolute;
+  // top: 0;
+}
+
+.event-ticket {
+  position: absolute;
+  bottom:4%;
+  right: 5%;
+  width: 25%;
+}
+
+.align-center {
+  align-items: top;
+}
+

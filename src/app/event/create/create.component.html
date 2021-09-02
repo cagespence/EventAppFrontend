@@ -1,0 +1,41 @@
+<app-header></app-header>
+<ion-content>
+  <div class="create-event-div">
+    <ion-text>create event</ion-text>
+    <form [formGroup]="formObj" (ngSubmit)="validateEvent()">
+      <ion-item class="input-outline mb1">
+        <ion-input placeholder="enter name" formControlName="title"></ion-input>
+      </ion-item>
+      <ion-item class="input-outline mb1">
+        <ion-input placeholder="enter address" formControlName="address"></ion-input>
+      </ion-item>
+      <ion-item class="input-outline mb1">
+        <ion-textarea rows="3" placeholder="enter the description of the event" auto-grow="true"
+          formControlName="description"></ion-textarea>
+      </ion-item>
+      <div class="tags-div">
+        <app-add-tags (tagsAdded)="setEventTags($event)" lines="none" [selectedTags]="selectedTags"></app-add-tags>
+      </div>
+      <ion-item class="input-outline mb1" lines="none">
+        <ion-label>Start Date</ion-label>
+        <ion-datetime formControlName="date" placeholder="add Date" max="2100-12-31"></ion-datetime>
+      </ion-item>
+      <ion-item class="input-outline mb1" lines="none">
+        <ion-label>Start Time</ion-label>
+        <ion-datetime formControlName="startTime" display-format="h:mm A" placeholder="add start time"
+          picker-format="h:mm A"></ion-datetime>
+      </ion-item>
+      <ion-item class="input-outline" lines="none">
+        <ion-label>End Time</ion-label>
+        <ion-datetime formControlName="endTime" display-format="h:mm A" placeholder="add end time"
+          picker-format="h:mm A"></ion-datetime>
+      </ion-item>
+      <div class="">
+        <app-upload-img (uploadedImageUrl)="setEventImage($event)"></app-upload-img>
+      </div>
+
+      <ion-button class="action-button" fill="clear" expand="block" type="submit">create</ion-button>
+      <!-- <ion-button class="button-underline" fill="clear" expand="block">cancel</ion-button> -->
+    </form>
+  </div>
+</ion-content>

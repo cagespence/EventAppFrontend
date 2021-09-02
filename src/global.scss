@@ -1,0 +1,184 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import "~@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+@import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@1.207/distr/fira_code.css);
+
+@import url(https://use.typekit.net/bxc5kmd.css);
+@import url(theme/variables.scss);
+
+.event-title {
+  text-transform: lowercase;
+  padding: 0 0 0.5em 0.5em;
+  font-family: var(--ion-font-alt);
+  font-weight: var(--ion-font-weight);
+  font-size: var(--ion-font-size-title);
+}
+
+.center-all-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+  padding: 0 5% 0 5%;
+  height: 100%;
+  text-align: center;
+}
+
+ion-button {
+  --border-radius: 0px !important;
+}
+
+.error-info-div {
+  color: red;
+}
+
+.action-button {
+  font-family: var(--ion-font-alt);
+  font-size: var(--ion-font-size);
+  font-weight: var(--ion-font-weight);
+  background-color: var(--ion-color-primary);
+  color: #fff;
+  font-size: 1.8em;
+  text-transform: lowercase;
+  height: 45px;
+}
+
+.button-outline-thin {
+  text-transform: lowercase;
+  font-size: 2.5em;
+  height: 80px;
+  border: solid black 3px;
+  color: black;
+}
+
+.button-outline-thicc {
+  text-transform: lowercase;
+  font-size: 2.5em;
+  height: 80px;
+  border: solid black 8px;
+  color: black;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
+.mb1 {
+  margin-bottom: 20px;
+}
+
+.mb2 {
+  margin-bottom: 8px;
+}
+
+.center {
+  text-align: center;
+}
+
+.title {
+  text-transform: lowercase;
+  font-family: var(--ion-font-alt);
+  font-weight: var(--ion-font-weight);
+  font-size: 5em;
+}
+
+.button-underline {
+  text-transform: lowercase;
+  text-decoration: underline;
+  font-size: 2.5em;
+  height: 80px;
+  color: black;
+}
+
+.button-edit {
+  text-transform: lowercase;
+  text-decoration: underline;
+  font-size: 1.5em;
+  height: 80px;
+  color: black;
+}
+
+.button-logout {
+  text-transform: lowercase;
+  text-decoration: underline;
+  font-size: 1.5em;
+  height: 45px;
+  color: var(--color-danger);
+}
+
+.page-title {
+  text-align: left;
+  font-size: 1.8em;
+}
+
+.input-outline {
+  border: 3px solid rgb(213, 213, 213);
+}
+
+.padding-all {
+  padding: 28px;
+}
+
+.margin-x-md{
+  margin-left: 28px;
+  margin-right: 28px;
+}
+
+.margin-bottom-lg {
+  margin-bottom: 36px;
+}
+
+.margin-bottom-md {
+  margin-bottom: 28px;
+}
+  .margin-bottom-sm {
+  margin-bottom: 16px;
+}
+
+.margin-right-sm {
+  margin-right: 16px;
+}
+
+.text-light {
+  color: dimgrey;
+}
+.event-item {
+  font-size: 1.5em;
+}
+
+
+.text-primary {
+  color: var(--ion-color-primary);
+}

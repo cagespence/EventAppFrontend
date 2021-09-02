@@ -1,0 +1,39 @@
+@import url(../../theme/variables.scss);
+
+.test {
+  --inner-padding-end: none !important;
+  --padding-bottom: 30px;
+}
+
+.test:last-child {
+  --padding-botttom: 0px;
+}
+
+.refresh-feed-comp {
+  padding-top: 10px;
+}
+
+.load-more-events-suggestion-div {
+  padding: 2% 5% 5% 5%;
+  display: flex;
+  justify-content: center;
+}
+
+.empty-list-div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+
+  .empty-list-link {
+    color: var(--ion-color-primary);
+  }
+}
+
+.md .tabs-bottom {
+  transform: translateY(-50px) !important;
+}
+.ios .tabs-bottom {
+  transform: translateY(-50px) !important;
+}
